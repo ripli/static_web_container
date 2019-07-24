@@ -9,13 +9,17 @@ pipeline {
 	}
     	stage('Build docker image') {
 	steps {
-	    dockerImage = docker.build "prili/static_web" + ":$BUILD_NUMBER"
+		script {
+		    dockerImage = docker.build "prili/static_web" + ":$BUILD_NUMBER"
+		}
 	}
     	}
 	stage('Push Docker Image') {
 	steps {
-		docker.withRegistry('')
-		dockerImage.push()
+		script {
+			docker.withRegistry('')
+			dockerImage.push()
+		}
 	}
 	}
     	stage('Deploy') {
