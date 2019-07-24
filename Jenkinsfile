@@ -27,7 +27,9 @@ pipeline {
 	}
 	stage('Deploy To k8s') {
 	  steps {
-	    sh 'echo $PATH'
+	    sh 'curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl'
+	    sh 'chmod +x ./kubectl'
+	    sh 'mv ./kubectl /usr/local/bin/kubectl'
 	    sh '/usr/local/bin/kubectl create -f static_web_deployment.yaml'
 	  }
 	}
