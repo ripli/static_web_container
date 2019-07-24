@@ -32,7 +32,7 @@ pipeline {
 	    sh 'chmod +x ./kubectl'
 	    sh 'mv ./kubectl /usr/local/bin/kubectl'
 	    sh 'mv config ~/.kube/config'
-	    sh '/usr/local/bin/kubectl replace -f static_web_deployment.yaml'
+	    sh '/usr/local/bin/kubectl apply -f static_web_deployment.yaml'
 	  }
 	}
   }
