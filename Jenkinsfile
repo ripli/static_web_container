@@ -9,12 +9,14 @@ pipeline {
 	}
     	stage('Build docker image') {
 	steps {
-    	    app = docker.build("prili/static_web")
+#    	    app = docker.build("prili/static_web")
+	    dockerImage = docker.build "prili/static_web" + ":$BUILD_NUMBER"
 	}
     	}
 	stage('Push Docker Image') {
 	steps {
-		docker.withRegistry('https://registry.hub.docker.com', '')
+		docker.withRegistry('')
+		dockerImage.push()
 	}
 	}
     	stage('Deploy') {
