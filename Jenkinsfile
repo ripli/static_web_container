@@ -1,9 +1,12 @@
 pipeline {
     agent any
     stages {
-    	stage('Build') {
+	stage('Clone repository') {
+		checkout scm
+	}
+    	stage('Build docker image') {
     	    steps {
-    		    sh 'echo "build-test"'
+    		    app = docker.build("static_web_container")
     	    }
     	}
     	stage('Deploy') {
