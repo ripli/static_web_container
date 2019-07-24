@@ -7,6 +7,11 @@ pipeline {
 		checkout scm
 	  }
 	}
+	stage ('Edit HTML file') {
+          steps {
+	     sh 'echo "Hello visitor! ${env.BUILD_NUMBER}" > index.html'
+	  }
+	}
         stage('Build docker image') {
 	  steps {
 	        script {
