@@ -33,6 +33,7 @@ pipeline {
 	    sh 'mv ./kubectl /usr/local/bin/kubectl'
 	    sh 'mv config ~/.kube/config'
 	    sh "sed -i 's/BUILD_NUMBER/${BUILD_NUMBER}/g' static_web_deployment.yaml"
+            sh 'cat static_web_deployment.yaml'
 	    sh '/usr/local/bin/kubectl apply -f static_web_deployment.yaml'
 	  }
 	}
