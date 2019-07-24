@@ -9,7 +9,7 @@ pipeline {
 	}
         stage('Build docker image') {
 	  steps {
-		sh 'echo "${BUILD_NUMBER}" > index.html'
+		sh 'echo "Hello visitor! ${BUILD_NUMBER}" > index.html'
 	        script {
 	          app = docker.build("prili/static_web")
 	        }
