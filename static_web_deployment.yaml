@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: static-web-deployment
-        image: prili/static_web:BUILD_NUBMER
+        image: prili/static_web:BUILD_NUMBER
         ports:
         - containerPort: 80
         imagePullPolicy: Always
