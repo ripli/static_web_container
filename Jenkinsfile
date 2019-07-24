@@ -27,7 +27,7 @@ pipeline {
 	}
 	stage('Deploy To k8s') {
 	  steps {
-	    sh 'kubectl create -f static_web_deployment.yaml'
+	    sh '/usr/local/bin/kubectl create -f static_web_deployment.yaml'
 	  }
 	}
   }
