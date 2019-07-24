@@ -9,7 +9,6 @@ pipeline {
 	}
     	stage('Build docker image') {
 	steps {
-#    	    app = docker.build("prili/static_web")
 	    dockerImage = docker.build "prili/static_web" + ":$BUILD_NUMBER"
 	}
     	}
