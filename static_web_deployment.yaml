@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: static_web_deployment
+  name: static-web-deployment
   labels:
     app: nginx
 spec:
@@ -15,7 +15,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: static_web_deployment
+      - name: static-web-deployment
         image: prili/static_web:latest
         ports:
         - containerPort: 80
