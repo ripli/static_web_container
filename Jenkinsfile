@@ -20,6 +20,7 @@ pipeline {
 		script {
 			docker.withRegistry( '', 'f192a746-f214-4aef-adc1-978b20c5b188') {
 				app.push("${env.BUILD_NUMBER}")
+				app.push("latest")
 			}
                 }
 	  }
